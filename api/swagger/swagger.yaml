@@ -1,0 +1,99 @@
+swagger: "2.0"
+info:
+  description: "Essa é a implementação de uma API RESTfull no cenário 1 do teste prático para a Criptonomia"
+  version: "0.1.0"
+  title: "API RESTful Criptonomia"
+
+host: "petstore.swagger.io"
+basePath: "/doc"
+schemes:
+  - "https"
+  - "http"
+paths:
+  /api/sum:
+    post:
+      tags:
+        - "sum"
+      summary: "Soma dois números"
+      description: "Soma dois números"
+      operationId: "sum"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: 'Os dois números a serem somados são passados como variáveis "a" e "b" no body'
+          required: true
+          schema:
+            type: "object"
+            properties:
+              a:
+                type: "integer"
+                format: "int32"
+              b:
+                type: "integer"
+                format: "int32"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "object"
+            properties:
+              soma:
+                type: "integer"
+                format: "int32"
+        404:
+          description: "something went wrong"
+          schema:
+            type: "object"
+            properties:
+              message:
+                type: "string"
+
+  /api/divide:
+    post:
+      tags:
+        - "divide"
+      summary: "Divide dois números"
+      description: "Divide dois números"
+      operationId: "divide"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: 'Os dois números a serem divididos são passados como variáveis "a" e "b" no body'
+          required: true
+          schema:
+            type: "object"
+            properties:
+              a:
+                type: "integer"
+                format: "int32"
+              b:
+                type: "integer"
+                format: "int32"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "object"
+            properties:
+              soma:
+                type: "integer"
+                format: "int32"
+        404:
+          description: "something went wrong"
+          schema:
+            type: "object"
+            properties:
+              message:
+                type: "string"
+
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
