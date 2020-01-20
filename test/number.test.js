@@ -31,6 +31,29 @@ describe("Soma 2 números", () => {
         done();
       });
   });
+
+  it("POST /soma - [Erro: parâmetros errados]", done => {
+    chai
+      .request(server)
+      .post("/api/sum")
+      .send({ c: 5, d: 4 })
+      .end((err, res) => {
+        expect(res).to.have.status(404);
+        expect(res.body.message).to.equals("Formatação dos dados recebida com erro");
+        done();
+      });
+  });
+
+  it("POST /soma - [Erro: nenhum parâmetro enviado]", done => {
+    chai
+      .request(server)
+      .post("/api/sum")
+      .end((err, res) => {
+        expect(res).to.have.status(404);
+        expect(res.body.message).to.equals("Formatação dos dados recebida com erro");
+        done();
+      });
+  });
 });
 
 describe("Divide 2 números", () => {
@@ -42,6 +65,29 @@ describe("Divide 2 números", () => {
       .end((err, res) => {
         expect(res).to.have.status(200);
         expect(res.body.divisao).to.equals(1.5);
+        done();
+      });
+  });
+
+  it("POST /divide - [Erro: parâmetros errados]", done => {
+    chai
+      .request(server)
+      .post("/api/divide")
+      .send({ c: 5, d: 4 })
+      .end((err, res) => {
+        expect(res).to.have.status(404);
+        expect(res.body.message).to.equals("Formatação dos dados recebida com erro");
+        done();
+      });
+  });
+
+  it("POST /divide - [Erro: nenhum parâmetro enviado]", done => {
+    chai
+      .request(server)
+      .post("/api/divide")
+      .end((err, res) => {
+        expect(res).to.have.status(404);
+        expect(res.body.message).to.equals("Formatação dos dados recebida com erro");
         done();
       });
   });
