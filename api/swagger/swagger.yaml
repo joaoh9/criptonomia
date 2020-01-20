@@ -4,7 +4,7 @@ info:
   version: "0.1.0"
   title: "API RESTful Criptonomia"
 
-host: "petstore.swagger.io"
+host: "localhost:3000"
 basePath: "/doc"
 schemes:
   - "https"
